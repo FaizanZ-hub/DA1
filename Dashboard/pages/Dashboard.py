@@ -4,6 +4,7 @@ import plotly.express as px
 import pandas as pd 
 import plotly.graph_objects as go
 
+
 #load the titanic dataset
 df = sns.load_dataset('titanic')
 
@@ -39,3 +40,33 @@ filtered_data = df[
 ]
 
 st.dataframe(filtered_data)
+
+#Create a pie chart for gender distribution
+st.subheader('Gender Distribution')
+gender_count = filtered_data['sex'].value_counts()
+fig = px.pie(names=gender_count.index, values=gender_count.values,
+             title='Gender Distribution')
+st.plotly_chart(fig)
+
+#Create a histogram for age distribution
+st.subheader("Age Distribution")
+fig=px.histogram(filtered_data,x='age',nbins=20,title='Age Distribution',
+                 labels={'age':'Age','count':'count'})
+st.plotly_chart(fig)
+
+#box blot of age distribution by passenger class
+#st.subheader("Age distribution by passenger class")
+#fig = px.box(filtered_data,x='pclass', y='age', title='Age Distribution by Passenger Class',
+#             labels={'pclass': 'Passenger Class', 'age': 'Age'})
+
+#Barchart for survival count
+#st.subheader("Survival Count")
+#fig = px.bar(filtered_data,x='Survived', y='Count', title='Titanic Survival Counts',
+#             labels={'Survived': 'Survival Status', 'Count': 'Number of Passengers'})
+
+
+
+#violin plot of age distribution by survival status 
+#Scatter plot of age vs fare
+#box plot of age distribution by passenger class
+#bar chart of survival counts
