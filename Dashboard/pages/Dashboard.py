@@ -55,15 +55,16 @@ fig=px.histogram(filtered_data,x='age',nbins=20,title='Age Distribution',
 st.plotly_chart(fig)
 
 #box blot of age distribution by passenger class
-#st.subheader("Age distribution by passenger class")
-#fig = px.box(filtered_data,x='pclass', y='age', title='Age Distribution by Passenger Class',
-#             labels={'pclass': 'Passenger Class', 'age': 'Age'})
+st.subheader("Age distribution by passenger class")
+fig = px.box(filtered_data,x='pclass', y='age', title='Age Distribution by Passenger Class',
+             labels={'pclass': 'Passenger Class', 'age': 'Age'})
+st.plotly_chart(fig)
 
 #Barchart for survival count
 #st.subheader("Survival Count")
 #fig = px.bar(filtered_data,x='Survived', y='Count', title='Titanic Survival Counts',
 #             labels={'Survived': 'Survival Status', 'Count': 'Number of Passengers'})
-
+#st.plotly_chart(fig)
 
 
 #violin plot of age distribution by survival status 
